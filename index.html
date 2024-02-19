@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB1 - Welcome</title>
+    <title>모요 요금제 랭킹</title>
+    <script>
+        // Function to format date and time
+        function formatDateTime(date) {
+            return date.toLocaleDateString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+        }
 
+        // Function to display the current date and time
+        function displayDateTime() {
+            const now = new Date();
+            const formattedDateTime = formatDateTime(now);
+            document.getElementById('currentDateTime').innerText = formattedDateTime;
+        }
+
+        // Run the displayDateTime function after the page has loaded
+        window.onload = function() {
+            displayDateTime();
+            // Optionally, update the time every second
+            setInterval(displayDateTime, 1000);
+        }
+    </script>
 </head>
 <body>
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRosZnq8uLZccZFdjPXhOrlrGO45wYw1SS_cDQpv-aSIa3Me2hR39eloKmVxtKcMH40lu10VhTGMB0U/pubhtml?widget=true&amp;headers=false" style="width:100%;height:100vh;border:none;"></iframe>
+    <h1 id="currentDateTime">Loading current date and time...</h1>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRosZnq8uLZccZFdjPXhOrlrGO45wYw1SS_cDQpv-aSIa3Me2hR39eloKmVxtKcMH40lu10VhTGMB0U/pubhtml?widget=true&amp;headers=false" style="width:100%;height:calc(100vh - 50px);border:none;"></iframe>
 </body>
 </html>
+
